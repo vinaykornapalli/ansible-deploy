@@ -1,6 +1,5 @@
 ---
 # tasks file for install-docker
-- name: Update yum
 - name: remove the Apache package
   yum:
     name: [ 
