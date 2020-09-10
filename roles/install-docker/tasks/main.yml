@@ -26,7 +26,7 @@
 
 - name: Install prerequisites in yum
   yum:
-    name: ['yum-utils','device-mapper-persistent-data','lvm2', 'libselinux-python']
+    name: ['yum-utils','device-mapper-persistent-data','lvm2']
     update_cache: yes
   become: true
 
