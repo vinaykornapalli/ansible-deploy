@@ -1,0 +1,12 @@
+[docker_manager]
+172.30.48.208 
+[docker_nodes]
+172.30.48.35 
+172.30.48.193 
+172.30.48.130 
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=op_appuser
+ansible_password=*********
+
