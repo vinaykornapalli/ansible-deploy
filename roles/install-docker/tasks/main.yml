@@ -32,10 +32,15 @@
 
 - name: Adding docker repository
   shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  become: true
+
+- name: Install containerd.io for latest docker-ce
+  shell: yum install -y https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
+  become: true
 
 - name: Install Docker
   yum:
-    name: ['python-pip','containerd.io','docker-ce','docker-ce-cli']
+    name: ['python-pip','docker-ce','docker-ce-cli']
     update_cache: yes
     state: present
   become: true
