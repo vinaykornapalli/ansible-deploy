@@ -35,7 +35,7 @@
 
 - name: Install Docker
   yum:
-    name: ['docker-ce','docker-ce-cli','containerd.io','python-pip']
+    name: ['python-pip','containerd.io','docker-ce','docker-ce-cli']
     update_cache: yes
     state: present
   become: true
