@@ -6,4 +6,4 @@
      register: docker_version
   
 - debug:
-  var: docker_version.stdout
+   var: docker_version.stdout
