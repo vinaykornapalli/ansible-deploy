@@ -1,7 +1,5 @@
 ---
 # tasks file for install-docker
-- name: Provide Internet
-  shell: export http_proxy=172.30.48.178:3128 && export https_proxy=172.30.48.178:3128
 - name: remove the Apache package
   yum:
     name: [ 
@@ -14,7 +12,7 @@
             'docker-logrotate',
             'docker-engine'
           ]
-    state: absent
+    state: removed
 
 - name: Install prerequisites in yum
   yum:
