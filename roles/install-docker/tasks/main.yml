@@ -1,7 +1,7 @@
 ---
 # tasks file for install-docker
 - name: Check the internet 
-  shell: echo $http_proxy
+  shell: cat /root/.bashrc
   register: ping
 - debug:
    var: ping
