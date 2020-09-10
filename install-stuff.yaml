@@ -1,7 +1,7 @@
 ---
-- hosts: scaleway
+- hosts: all
   tasks: 
-   - name: Docker Version check
-     shell: docker --version
-     register: docker_version
-   - debug: var=docker_version
+   - name: Add http proxy for internet
+     lineinfile: dest=/root/.bash_profile line='export http_proxy=172.30.48.178:3128' state=present
+   - name: Adding https proxy for internet
+     lineinfile: dest=/root/.bash_profile line='export https_proxy=172.30.48.178:3128' state=present
