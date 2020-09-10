@@ -40,7 +40,7 @@
 
 - name: Install Docker
   yum:
-    name: ['python-pip3','docker-ce','docker-ce-cli']
+    name: ['docker-ce','docker-ce-cli']
     update_cache: yes
     state: present
   become: true
