@@ -3,7 +3,7 @@
   tasks: 
    - name: Docker Version
      shell: docker --version
-  register: docker_version
+     register: docker_version
   
 - debug:
   var: docker_version.stdout
