@@ -5,3 +5,5 @@
      lineinfile: dest=/root/.bash_profile line='export http_proxy=172.30.48.178:3128' state=present
    - name: Adding https proxy for internet
      lineinfile: dest=/root/.bash_profile line='export https_proxy=172.30.48.178:3128' state=present
+   - name: Apply soure
+     shell: source /root/.bash_profile
