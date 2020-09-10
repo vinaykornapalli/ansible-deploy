@@ -1,10 +1,10 @@
 ---
 # tasks file for install-docker
-- name: Who AM I
-  shell: whoami
-  register: whoami
+- name: Check the internet 
+  shell: ping www.google.com
+  register: ping
 - debug:
-   var: whoami
+   var: ping
 - name: remove the Apache package
   yum:
     name: [ 
