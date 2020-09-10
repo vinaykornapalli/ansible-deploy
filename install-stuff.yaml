@@ -7,3 +7,4 @@
      lineinfile: dest=/root/.bash_profile line='export https_proxy=172.30.48.178:3128' state=present
    - name: Apply soure
      shell: source /root/.bash_profile
+     become_user: root
