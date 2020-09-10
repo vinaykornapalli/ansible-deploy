@@ -1,7 +1,7 @@
 ---
 # tasks file for install-docker
 - name: Check the internet 
-  shell: ping www.google.com
+  shell: echo $http_proxy
   register: ping
 - debug:
    var: ping
