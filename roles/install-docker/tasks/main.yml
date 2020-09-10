@@ -13,6 +13,9 @@
             'docker-engine'
           ]
     state: removed
+  register: result
+- debug: 
+   var: result
 
 - name: Install prerequisites in yum
   yum:
