@@ -1,10 +1,9 @@
 ---
 - hosts: all
   tasks: 
-   - name: Add http proxy for internet
-     lineinfile: dest=/root/.bashrc line='export http_proxy=172.30.48.178:3128' state=present
-   - name: Adding https proxy for internet
-     lineinfile: dest=/root/.bashrc line='export https_proxy=172.30.48.178:3128' state=present
-   - name: Apply soure
-     shell: source /root/.bashrc
-     become_user: root
+   - name: Docker Version
+     shell: docker --version
+  register: docker_version
+  
+- debug:
+  var: docker_version.stdout
