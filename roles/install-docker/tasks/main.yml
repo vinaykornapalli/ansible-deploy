@@ -46,7 +46,15 @@
     update_cache: yes
     state: present
   become: true
-
+- name: Change data root for docker storage
+  copy:
+    src: "{{ role_path }}/files/daemon.json"
+    dest: /etc/docker
+  become: true
+  
 - name: "Increasing heap memory"
   shell: sysctl -w vm.max_map_count=262144
   become: true
+
+- name: Starting docker
+  shell: sudo systemctl start docker

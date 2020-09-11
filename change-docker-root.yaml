@@ -1,0 +1,17 @@
+- hosts: all
+  tasks: 
+   - name: Stop Docker
+     shell: systemctl stop docker
+     become: true
+   - name: Add Desired Port
+     shell: firewall-cmd --zone=public --add-port=2377/tcp --permanent
+     become: true
+   - name: Add Mascarade
+     shell: firewall-cmd --zone=public --permanent --add-masquerade
+     become: true
+   - name: Reload Firewall Settings
+     shell: firewall-cmd --reload
+     become: true
+  environment:
+    http_proxy: 172.30.48.178:3128
+    https_proxy: 172.30.48.178:3128
