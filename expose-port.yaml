@@ -14,3 +14,6 @@
    - name: Reload Firewall Settings
      shell: firewall-cmd --reload
      become: true
+  environment:
+    http_proxy: 172.30.48.178:3128
+    https_proxy: 172.30.48.178:3128
