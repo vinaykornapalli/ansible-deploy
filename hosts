@@ -1,7 +1,6 @@
 [docker_master]
 172.30.48.208
 [docker_manager]
-172.30.48.208
 172.30.48.193 
 172.30.48.130 
 [docker_worker]
