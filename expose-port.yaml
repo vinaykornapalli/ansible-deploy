@@ -6,7 +6,7 @@
        update_cache: yes
      become: true
    - name: Enable FirewallD
-     shell: systemctl start firewalld && systemctl enable firewalld && systemctl status firewalld
+     shell: sudo systemctl start firewalld && sudo systemctl enable firewalld && sudo systemctl status firewalld
      become: true
    - name: Add Desired Port
      shell: firewall-cmd --add-port=2377/tcp --permanent
