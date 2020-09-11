@@ -7,7 +7,7 @@
   environment:
     http_proxy: 172.30.48.178:3128
     https_proxy: 172.30.48.178:3128
-- name: Swarm
+- hosts: docker_master
   user: root
   gather_facts: True
   roles:
