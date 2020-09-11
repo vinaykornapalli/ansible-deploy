@@ -1,0 +1,11 @@
+- hosts: all
+  tasks: 
+   - name: Reload Daemon
+     shell: systemctl daemon-reload
+     become: true
+   - name: Restart docker
+     shell: systemctl restart docker
+     become: true
+  environment:
+    http_proxy: 172.30.48.178:3128
+    https_proxy: 172.30.48.178:3128
