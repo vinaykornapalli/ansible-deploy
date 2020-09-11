@@ -1,9 +1,10 @@
 - hosts: all
   tasks: 
    - name: Uninstall docker
-     yum: 
-       name: ['docker-ce']
-     state: removed
+     yum:
+      name: ['docker-ce','docker-ce-cli']
+      update_cache: yes
+      state: present
      become: true
   environment:
     http_proxy: 172.30.48.178:3128
