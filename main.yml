@@ -19,7 +19,7 @@
   user: root
   gather_facts: True
   roles:
-    - { role: create-swarm }
+    - { role: join-swarm }
   environment:
     http_proxy: 172.30.48.178:3128
     https_proxy: 172.30.48.178:3128
@@ -27,7 +27,7 @@
   user: root
   gather_facts: True
   roles:
-    - { role: create-swarm }
+    - { role: join-swarm }
   environment:
     http_proxy: 172.30.48.178:3128
     https_proxy: 172.30.48.178:3128
