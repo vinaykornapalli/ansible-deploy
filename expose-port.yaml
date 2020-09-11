@@ -2,11 +2,11 @@
   tasks: 
    - name: Install FirewallD
      yum:
-       name: ['yum-utils','device-mapper-persistent-data','lvm2']
+       name: ['firewalld']
        update_cache: yes
      become: true
    - name: Enable FirewallD
-     shell: sudo systemctl start firewalld && sudo systemctl enable firewalld && sudo systemctl status firewalld
+     shell: systemctl start firewalld && systemctl enable firewalld && systemctl status firewalld
      become: true
    - name: Add Desired Port
      shell: firewall-cmd --add-port=2377/tcp --permanent
