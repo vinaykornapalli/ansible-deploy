@@ -1,19 +1,25 @@
 ---
 # tasks file for join-swarm
 - name: "Starting docker"
+  when: inventory_hostname in groups['docker_manager']
   shell: sudo systemctl start docker
     
 - name: "Joining the swarm"
+  when: inventory_hostname in groups['docker_manager']
   shell:  "{{ hostvars['token_host_manager']['token'] }}"
   register: NODE_RESULTS
+- name: Debug Manager Joining Swarm
   debug: 
     var: NODE_RESULTS.stdout
 
 - name: "Starting docker"
+  when: inventory_hostname in groups['docker_worker']
   shell: sudo systemctl start docker
     
 - name: "Joining the swarm"
+  when: inventory_hostname in groups['docker_worker']
   shell:  "{{ hostvars['token_host']['token'] }}"
   register: NODE_RESULTS
+- name: Debug Worker Joining Swarm
   debug: 
     var: NODE_RESULTS.stdout
