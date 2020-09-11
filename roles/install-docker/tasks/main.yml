@@ -51,10 +51,13 @@
     src: "{{ role_path }}/files/daemon.json"
     dest: /etc/docker
   become: true
-  
+
 - name: "Increasing heap memory"
   shell: sysctl -w vm.max_map_count=262144
   become: true
-
-- name: Starting docker
-  shell: sudo systemctl start docker
+- name: Reload Daemon
+  shell: systemctl daemon-reload
+  become: true
+- name: Restart docker
+  shell: systemctl restart docker
+  become: true
