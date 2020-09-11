@@ -1,2 +1,32 @@
 ---
-# tasks file for create-swarm
+# tasks file for create-swarm and store tokens 
+- name: Starting docker
+  shell: sudo systemctl start docker
+  hosts: docker_master
+
+- name: Initializing docker swarm
+  shell: docker swarm init | grep '\-\-token '
+  register: result
+  hosts: docker_master
+  debug:
+    var: result.stdout
+  
+- name: Registering token with variable
+  add_host:
+    name: "token_host"
+    token: " {{ result.stdout }}"
+
+- name: Initializing docker swarm
+  shell: docker swarm join-token manager | grep '\-\-token '
+  register: result
+  hosts: docker_master
+  debug:
+    var: result.stdout
+
+- name: Registering manager token with variable
+  add_host:
+    name: "token_host_manager"
+    token: " {{ result.stdout }}"
+
+
+  

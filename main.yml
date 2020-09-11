@@ -7,3 +7,11 @@
   environment:
     http_proxy: 172.30.48.178:3128
     https_proxy: 172.30.48.178:3128
+- name: Swarm
+  user: root
+  gather_facts: True
+  roles:
+    - { role: create-swarm }
+  environment:
+    http_proxy: 172.30.48.178:3128
+    https_proxy: 172.30.48.178:3128

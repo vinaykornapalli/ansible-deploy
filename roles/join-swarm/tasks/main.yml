@@ -1,2 +1,19 @@
 ---
 # tasks file for join-swarm
+- name: "Starting docker"
+  shell: sudo systemctl start docker
+    
+- name: "Joining the swarm"
+  shell:  "{{ hostvars['token_host_manager']['token'] }}"
+  register: NODE_RESULTS
+  debug: 
+    var: NODE_RESULTS.stdout
+
+- name: "Starting docker"
+  shell: sudo systemctl start docker
+    
+- name: "Joining the swarm"
+  shell:  "{{ hostvars['token_host']['token'] }}"
+  register: NODE_RESULTS
+  debug: 
+    var: NODE_RESULTS.stdout

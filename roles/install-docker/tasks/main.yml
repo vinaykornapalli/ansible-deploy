@@ -3,7 +3,7 @@
 - name: Check the internet 
   shell: echo $http_proxy
   register: ping
-- debug:
+  debug:
    var: ping
 - name: remove the Apache package
   yum:
@@ -21,7 +21,7 @@
     state: removed
   become: true
   register: result
-- debug: 
+  debug: 
    var: result
 
 - name: Install prerequisites in yum
