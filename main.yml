@@ -1,12 +1,12 @@
-- hosts: all
-  user: root
-  port: 22
-  gather_facts: True
-  roles:
-    - { role: install-docker }
-  environment:
-    http_proxy: 172.30.48.178:3128
-    https_proxy: 172.30.48.178:3128
+# - hosts: all
+#   user: root
+#   port: 22
+#   gather_facts: True
+#   roles:
+#     - { role: install-docker }
+#   environment:
+#     http_proxy: 172.30.48.178:3128
+#     https_proxy: 172.30.48.178:3128
 - hosts: docker_master
   user: root
   gather_facts: True
