@@ -9,7 +9,7 @@
      shell: systemctl start firewalld && systemctl enable firewalld && systemctl status firewalld
      become: true
    - name: Add Desired Port
-     shell: firewall-cmd --add-port=2377/tcp --permanent
+     shell: firewall-cmd --zone=public --add-port=2377/tcp --permanent
      become: true
    - name: Reload Firewall Settings
      shell: firewall-cmd --reload
