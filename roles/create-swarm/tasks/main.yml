@@ -8,6 +8,8 @@
   shell: docker swarm init | grep '\-\-token '
   register: result
   hosts: docker_master
+
+- name: Debug SwarmInit
   debug:
     var: result.stdout
   
@@ -20,6 +22,7 @@
   shell: docker swarm join-token manager | grep '\-\-token '
   register: result
   hosts: docker_master
+- name: Ouputing manager token 
   debug:
     var: result.stdout
 

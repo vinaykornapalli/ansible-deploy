@@ -3,6 +3,7 @@
 - name: Check the internet 
   shell: echo $http_proxy
   register: ping
+- name: Output the internet check
   debug:
    var: ping
 - name: remove the Apache package
@@ -21,6 +22,7 @@
     state: removed
   become: true
   register: result
+- name: Debug Remove Apache Packages
   debug: 
    var: result
 
